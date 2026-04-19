@@ -24,4 +24,5 @@ Full project repository: [CSC494-Dirt_Bike_Maintenance_Sensor_System](https://gi
 
 ## Demo Video
 Warm Bike: https://youtube.com/shorts/1X038i7_y94?feature=share
+
 Cold Bike: https://youtube.com/shorts/FnaW9bqta3Q?feature=share
