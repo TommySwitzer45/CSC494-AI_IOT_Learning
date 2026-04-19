@@ -1,0 +1,14 @@
+## How AI Helped
+
+**AI was very helpful for:**
+- Fast debugging using serial monitor output
+- Generating exact wiring tables with pin numbers
+- Rewriting specific firmware functions
+- Quickly identifying hardware issues
+
+**Where AI was wrong:**
+- Suggested `analogSetAttenuation()` (doesn’t exist on XIAO ESP32-C6)
+- Outdated NimBLE callback signatures
+- Didn’t know ESP32-C6 RISC-V core can’t bit-bang 1-Wire
+
+**Lesson:** AI is a powerful tool, but always test and verify.
