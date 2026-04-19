@@ -1,0 +1,41 @@
+Overview
+This project was the first time I built a complete IoT system from scratch using AI as a primary tool throughout. Looking back, AI was involved in almost every decision from choosing components to debugging hardware to writing the dashboard. That experience gave me a very clear picture of where AI genuinely helps, where it creates new problems, and what it means to use AI as a tool without letting it think for you.
+
+How AI Made Things Easier
+The biggest way AI helped was speed. Problems that would have taken hours of forum searching took minutes. When the serial monitor showed unexpected output, I could paste it directly into AI and get a diagnosis immediately. When I needed to rewire components, AI gave me exact pin-by-pin tables instead of me hunting through datasheets. When I needed to swap an entire BLE library, AI rewrote the relevant functions while keeping everything else intact.
+AI was especially good at:
+
+Reading error messages and tracing them to root causes
+Writing boilerplate code — JSON serialization, BLE setup, Web Bluetooth connection logic — correctly on the first attempt
+Explaining why something was not working in plain language
+Giving step by step instructions for things it knew well, like breadboard wiring and Arduino library setup
+
+The dashboard is a good example of AI making something easier than it would have been alone. The Web Bluetooth API is complex and poorly documented. AI wrote the entire BLE connection flow, the notification subscription, the JSON parser, and the gauge animations — all working immediately. Without AI that would have taken days of reading documentation and trial and error.
+
+How AI Made Things More Challenging
+AI also created problems it did not warn me about. The most costly was the DS18B20 temperature sensor issue. AI confidently provided a bit-bang 1-Wire driver and said it would work on the XIAO ESP32-C6. It did not. The ESP32-C6 uses a RISC-V core where software timing for 1-Wire protocol breaks down — something AI had no knowledge of. I spent days debugging before discovering this was a fundamental hardware incompatibility, not a code mistake. Every fix AI suggested made the situation more confusing because the root cause was something AI did not know existed.
+AI also suggested things that were simply wrong:
+
+analogSetAttenuation() — does not exist on the XIAO board package
+NimBLE callback signatures from an older API version that no longer compiled
+NimBLE as the BLE library of choice — invisible to iOS entirely
+
+Each of these sent the project in the wrong direction for a period of time. The frustrating part is that AI presented all of these suggestions with the same confidence it presents correct answers. There is no signal that tells you when AI is right versus when it is guessing based on outdated or incomplete information.
+
+What This Taught Me About Using AI
+The most important thing I learned is that AI amplifies what you already understand, and it misleads you when you do not understand the problem yet.
+When I understood what an error meant, AI could fix it in seconds. When I did not understand it, AI gave me more broken code that looked plausible. The times AI helped most were when I could already read the serial monitor, identify roughly what was wrong, and ask a specific question. The times AI hurt most were when I was lost and just asked it to solve a problem I did not understand — it gave an answer that felt complete but was not correct.
+This changed how I approach AI tools. Now I use AI after I have some understanding of the problem — not before. I ask specific questions instead of open-ended ones. And I always test AI suggestions on real hardware before trusting them, because the gap between "this looks right" and "this actually works" is where AI fails.
+
+What I Would Do Differently
+
+Start with the standard ESP32 BLE library instead of NimBLE — would have saved days
+Test each sensor in isolation before combining everything — easier to find problems
+Verify AI suggestions against documentation before implementing them — especially for hardware-specific functions
+Ask AI more specific questions — "does this function exist on XIAO ESP32-C6" instead of "how do I configure the ADC"
+Plan mounting before buying sensors — the oil level and coolant sensors I planned could never be mounted non-invasively, discovered too late
+
+
+Final Thought
+I started this project thinking AI would handle the hard parts. I finished it understanding that the hard parts are still hard — AI just changes what the hard parts are. Instead of spending time writing boilerplate code, I spent time verifying whether AI's suggestions were actually correct. Instead of debugging for hours alone, I debugged faster but had to stay sharp enough to know when AI was confidently wrong.
+The result is a working system that runs on my YZ450F, powered from the bike itself, showing live data on my iPhone. That outcome came from combining what AI is genuinely good at with my own ability to think through the problem. Neither alone would have gotten there as fast or as cleanly.
