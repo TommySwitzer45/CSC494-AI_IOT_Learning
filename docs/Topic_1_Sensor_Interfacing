@@ -1,0 +1,12 @@
+## Learning with AI – Topic 1: Sensor Interfacing
+
+**What I set out to learn:**  
+How to connect, calibrate, and mount sensors on a real dirt bike.
+
+**What I learned:**
+- Real hardware is very different from tutorials
+- Pressure sensor failed on A0 → moved to A1
+- ESP32-C6 RISC-V cannot reliably bit-bang 1-Wire for DS18B20 → offloaded to Arduino Nano
+- Mounting on a vibrating dirt bike (zip ties, foil, air box seam) is much harder than breadboard work
+
+Real-world vibration, dust, and “no drilling” rule made everything more challenging.
