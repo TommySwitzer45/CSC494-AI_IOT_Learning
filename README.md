@@ -23,6 +23,6 @@ Full project repository: [CSC494-Dirt_Bike_Maintenance_Sensor_System](https://gi
 [https://TommySwitzer45.github.io/CSC494-Dirt_Bike_Maintenance_Sensor_System](https://TommySwitzer45.github.io/CSC494-Dirt_Bike_Maintenance_Sensor_System)
 
 ## Demo Video
-Warm Bike: https://youtube.com/shorts/1X038i7_y94?feature=share
+Warm Bike: [https://youtube.com/shorts/1X038i7_y94?feature=share](https://youtube.com/shorts/QOzN9UsvcXs?feature=share)
 
-Cold Bike: https://youtube.com/shorts/FnaW9bqta3Q?feature=share
+Cold Bike: [https://youtube.com/shorts/FnaW9bqta3Q?feature=share](https://youtube.com/shorts/u4xNnDTEOb8?feature=share)
